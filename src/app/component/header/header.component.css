@@ -1,99 +1,40 @@
-header {
-  background-color: var(--primary-color);
+.navbar {
+  padding: 30px;
+}
+form .form-control {
+  width: calc(500px);
+}
+.navbar img {
   height: 50px;
 }
-header .nav-container {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  max-width: 1248px;
-  margin: 0 auto;
+.navbar p {
+  margin-top: 20px;
 }
-header .nav-container .logo {
-  display: flex;
-  min-width: 137px;
-  justify-content: center flex-end;
-}
-header .nav-container .logo img {
-  width: 75px;
-}
-header .search {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  margin-left: 12px;
-}
-header .search .search-container {
-  width: 540px;
-  height: 36px;
-  background-color: white;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 23%);
-  display: flex;
-}
-header .search .search-container input {
-  width: calc(100% - 24px);
-  height: 100%;
-  padding: 0 8px;
-  display: flex;
-  justify-content: center;
+.nav-search input {
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 25px;
   outline: none;
-  border: none;
   align-items: center;
+  text-align: left;
+  font-size: 18px;
+  justify-content: space-between;
+  max-width: 600px;
+  width: 400px;
+  font-weight: bold;
+  margin: 20px;
+  padding: 10px;
 }
-header .search .search-container button {
-  width: 36px;
-  height: 100%;
-  padding: 0 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  background-color: white;
-  border-radius: 0 2px 2px 0;
+.nav-search button {
+  margin-left: -65px;
+  top: 5px;
 }
-header .login {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  margin: 0 20px;
+.nav button {
+  text-align: center;
+  top: 3px;
+  color: black;
 }
-header .login button {
-  padding: 5px 40px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--primary-color);
-}
-header .become-a-seller {
-  color: white;
-  margin: 0 20px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 500;
-}
-header .more {
-  color: white;
-  margin: 0 20px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 500;
-}
-header .more svg {
-  margin-left: 8px;
-  rotate: -90deg;
-}
-header .cart {
-  color: white;
-  margin: 0 20px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-}
-header .cart svg{
-  margin-right: 8px;
+.nav button a {
+  text-decoration: none;
+  color: black;
 }

@@ -1,0 +1,30 @@
+h1 {
+  color: orangered;
+  background-color: rgb(0, 230, 88);
+}
+.container {
+  background-color: rgb(172, 247, 182);
+
+  border-radius: 0.3rem;
+  box-shadow: rgb(235, 120, 68);
+
+  border-radius: 4px;
+  min-height: 900px;
+  margin-top: 60px;
+}
+
+.btn-card {
+  width: calc(50% - 20px);
+  margin: 0 10px 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.btn-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+.btn-row {
+  margin-left: 10px;
+}
