@@ -1,0 +1,75 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="row">
+    <span>LOGIN</span>
+    <span class="spacer"></span>
+    <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="loginForm" (ngSubmit)="handleLoginSubmit()">
+    <div fxFlex fxLayout="column">
+      <mat-form-field appearence="standard" [style.width.px]="327">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required />
+        <mat-error
+          *ngIf="
+            loginForm.controls.email.touched && loginForm.controls.email.invalid
+          "
+        >
+          <span *ngIf="loginForm.controls.email.errors.required">
+            This field is mandatory</span
+          >
+          <span *ngIf="loginForm.controls.email.errors.pattern">
+            Please enter a valid email address</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearence="standard" [style.width.px]="327">
+        <mat-label>Enter your password</mat-label>
+        <input
+          formControlName="password"
+          required
+          matInput
+          [type]="hide ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error
+          *ngIf="
+            loginForm.controls.password.touched &&
+            loginForm.controls.password.invalid
+          "
+        >
+          <span *ngIf="loginForm.controls.email.errors.required">
+            This field is mandatory</span
+          >
+          <span *ngIf="loginForm.controls.password.errors.pattern">
+            Please enter a valid email address</span
+          >
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    (click)="handleLoginSubmit()"
+  >
+    LOGIN
+  </button>
+</mat-dialog-actions>
+<span>
+  <p>Dont have account ?<a (click)="handleSignupAction()">Create one</a></p>
+</span>

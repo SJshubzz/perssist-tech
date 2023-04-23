@@ -10,6 +10,9 @@ form .form-control {
 .navbar p {
   margin-top: 20px;
 }
+.nav-search {
+  width: 500px;
+}
 .nav-search input {
   height: 50px;
   border: 2px solid black;
@@ -37,4 +40,14 @@ form .form-control {
 .nav button a {
   text-decoration: none;
   color: black;
+}
+.main {
+  display: flex;
+}
+drop-down {
+  padding: 20px;
+  display: flex;
+}
+li {
+  margin-top: 40px;
 }
