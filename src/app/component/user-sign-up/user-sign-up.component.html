@@ -1,5 +1,13 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="row">
+    <span>LOGIN</span>
+    <span class="spacer"></span>
+    <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
 <form [formGroup]="signupForm" (ngSubmit)="handleSubmit()">
-  <h2>Sign Up</h2>
   <div class="form-group">
     <input
       type="text"

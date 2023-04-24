@@ -10,6 +10,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { UserAuthService } from 'src/app/services/user-auth.service';
 import { GlobalConstants } from 'src/app/shared/global-constance';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 import { UserSignUpComponent } from '../user-sign-up/user-sign-up.component';
 
 @Component({
@@ -71,7 +72,14 @@ export class UserLoginComponent implements OnInit {
   handleSignupAction() {
     this.dialoref.close();
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.width = '500px';
+    dialogConfig.width = '550px';
     this.dialog.open(UserSignUpComponent, dialogConfig);
+  }
+
+  handleForgotPasswordAction() {
+    this.dialoref.close();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = 'auto';
+    this.dialog.open(ForgotPasswordComponent, dialogConfig);
   }
 }

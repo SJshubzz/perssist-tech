@@ -19,12 +19,19 @@ export class UserAuthService {
       headers: new HttpHeaders().set('Content-Type', 'Application/json'),
     });
   }
-  checkToken() {
-    return this.HttpClient.get(this.url + '/user/checkToken');
-  }
+
   forgetPassword(data: any) {
     return this.HttpClient.post(this.url + '/user/forgotPassword' + data, {
-      Headers: new HttpHeaders().set('Content-Type', 'appication/json'),
+      headers: new HttpHeaders().set('Content-Type', 'Appication/json'),
+    });
+  }
+
+  forgotPassword(email: any) {
+    const url = 'http://localhost:8082/user/forgotPassword';
+    const body = { email: email };
+    const options = { withCredentials: true };
+    return this.HttpClient.post(url, email, {
+      headers: new HttpHeaders().set('Content-Type', 'Application/json'),
     });
   }
 }

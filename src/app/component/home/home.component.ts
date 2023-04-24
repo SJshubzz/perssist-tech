@@ -9,14 +9,5 @@ import { UserAuthService } from 'src/app/services/user-auth.service';
 })
 export class HomeComponent implements OnInit {
   constructor(private userServices: UserAuthService, private router: Router) {}
-  ngOnInit(): void {
-    this.userServices.checkToken().subscribe(
-      (Response: any) => {
-        this.router.navigate(['seller-home']);
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
-  }
+  ngOnInit(): void {}
 }
