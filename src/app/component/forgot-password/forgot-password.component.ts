@@ -12,6 +12,7 @@ import { GlobalConstants } from 'src/app/shared/global-constance';
   styleUrls: ['./forgot-password.component.css'],
 })
 export class ForgotPasswordComponent implements OnInit {
+  gmail: string = '';
   forgotPasswordForm: any = FormGroup;
   responseMessage: any;
   constructor(
@@ -35,7 +36,7 @@ export class ForgotPasswordComponent implements OnInit {
     var data = {
       email: formData.email,
     };
-    this.userService.forgotPassword(data).subscribe(
+    this.userService.forgotPassword(this.gmail).subscribe(
       (response: any) => {
         this.ngxService.stop();
         this.responseMessage = response?.message;

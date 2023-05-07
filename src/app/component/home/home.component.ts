@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UserAuthService } from 'src/app/services/user-auth.service';
 
@@ -8,6 +9,19 @@ import { UserAuthService } from 'src/app/services/user-auth.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private userServices: UserAuthService, private router: Router) {}
-  ngOnInit(): void {}
+  constructor(
+    private userService: UserAuthService,
+    private router: Router,
+    private dialog: MatDialog
+  ) {}
+  ngOnInit(): void {
+    this.userService.checkToken().subscribe(
+      (response: any) => {
+        this.router.navigate(['dashboard']);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
 }
