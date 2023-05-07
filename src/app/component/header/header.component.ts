@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import jwt_decode from 'jwt-decode';
+import { UserAuthService } from 'src/app/services/user-auth.service';
 import { UserLoginComponent } from '../user-login/user-login.component';
 
 @Component({
@@ -11,12 +13,27 @@ import { UserLoginComponent } from '../user-login/user-login.component';
 export class HeaderComponent implements OnInit {
   menuType: string = 'default';
   userName: string = '';
+  role: any = '';
 
-  constructor(private dialog: MatDialog, private router: Router) {}
+  constructor(
+    private dialog: MatDialog,
+    private router: Router,
+    private userService: UserAuthService
+  ) {}
   ngOnInit(): void {
-    if (localStorage.getItem('token')) {
-      this.menuType = 'user';
-      this.userName = 'welcome';
+    var token: any = localStorage.getItem('token');
+    const decodedToken: any = jwt_decode(token);
+    this.role = decodedToken.role;
+
+    if (token) {
+      if (this.role === 'admin') {
+        this.menuType = 'seller';
+        this.router.navigate(['dashboard']);
+      } else {
+        this.menuType = 'user';
+      }
+    } else {
+      this.menuType = 'default';
     }
   }
   logout() {

@@ -3,7 +3,7 @@ export class GlobalConstants {
     "Something wen't wrong . Please try again letter";
 
   public static unAuthorized: string =
-    'You are not Authorized person to access to this page .';
+    'You are not Authorized person to access this page .';
 
   public static nameRegex: string = '[a-zA-Z0-9 ]*';
 

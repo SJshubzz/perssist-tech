@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SellerAuthService } from 'src/app/services/seller-auth.service';
 
 @Component({
   selector: 'app-seller',
@@ -13,22 +12,11 @@ export class SellerComponent implements OnInit {
   password = '';
   invalidLogin = false;
 
-  constructor(
-    private router: Router,
-    private loginservice: SellerAuthService
-  ) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
   onModeSwitch() {
     this.loginMode = !this.loginMode;
   }
-  checkLogin() {
-    if (this.loginservice.authenticate(this.username, this.password)) {
-      this.router.navigate(['seller-home']);
-      this.invalidLogin = false;
-    } else {
-      this.invalidLogin = true;
-      console.warn('Wrong');
-    }
-  }
+  checkLogin() {}
 }

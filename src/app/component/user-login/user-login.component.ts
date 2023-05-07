@@ -48,12 +48,11 @@ export class UserLoginComponent implements OnInit {
       password: formData.password,
     };
     this.userservie.login(data).subscribe(
-      (Response: any) => {
+      (response: any) => {
         this.ngxService.stop();
         this.dialoref.close();
-        localStorage.setItem('token', Response.token);
+        localStorage.setItem('token', response.token);
         window.location.reload();
-        this.router.navigate(['/']);
       },
       (error) => {
         if (error.error?.message) {

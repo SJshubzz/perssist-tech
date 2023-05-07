@@ -11,7 +11,7 @@
         </button>
       </div>
 
-      <div class="content text-center m-3" [ngSwitch]="menuType">
+      <div class="content text-bottom m-3" [ngSwitch]="menuType">
         <ul class="nav justify-content-end" *ngSwitchCase="'default'">
           <li>
             <button routerLink="seller" mat-button color="primary">
@@ -41,6 +41,40 @@
             </a>
           </li>
         </ul>
+        <ul class="nav justify-content-end" *ngSwitchCase="'seller'">
+          <li>
+            <button routerLink="seller" mat-button color="primary">
+              become A seller
+            </button>
+          </li>
+
+          <li>
+            <button mat-button>hey,{{ role | titlecase }}</button>
+          </li>
+
+          <li>
+            <button mat-button color="primary">Order</button>
+          </li>
+
+          <li>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="logout()">logOut</button>
+              <button mat-menu-item routerLink="dashboard">Dashboard</button>
+              <button mat-menu-item>Option 3</button>
+            </mat-menu>
+          </li>
+
+          <li>
+            <a>
+              <button mat-icon-button>
+                <mat-icon> shopping_cart_checkout </mat-icon>
+              </button>
+            </a>
+          </li>
+        </ul>
         <ul class="nav justify-content-end" *ngSwitchCase="'user'">
           <li>
             <button routerLink="seller" mat-button color="primary">
@@ -49,13 +83,7 @@
           </li>
 
           <li>
-            <button mat-button [matMenuTriggerFor]="menu">
-              hey,{{ userName | titlecase }}
-            </button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="logout()">logOut</button>
-              <button mat-menu-item>Item 2</button>
-            </mat-menu>
+            <button mat-button>hey,{{ role | titlecase }}</button>
           </li>
 
           <li>
@@ -63,8 +91,15 @@
           </li>
 
           <li>
-            <button mat-button color="primary">More</button>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="logout()">logOut</button>
+              <button mat-menu-item>Order</button>
+            </mat-menu>
           </li>
+
           <li>
             <a>
               <button mat-icon-button>

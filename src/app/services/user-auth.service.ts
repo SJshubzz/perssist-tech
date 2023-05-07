@@ -30,8 +30,10 @@ export class UserAuthService {
     const url = 'http://localhost:8082/user/forgotPassword';
     const body = { email: email };
     const options = { withCredentials: true };
-    return this.HttpClient.post(url, email, {
-      headers: new HttpHeaders().set('Content-Type', 'Application/json'),
-    });
+    return this.HttpClient.post(url, body);
+  }
+
+  checkToken() {
+    return this.HttpClient.get(this.url + '/user/checkToken');
   }
 }
