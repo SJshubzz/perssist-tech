@@ -19,6 +19,13 @@ const routes: Routes = [
         pathMatch: 'full',
       },
       {
+        path: '',
+        loadChildren: () =>
+          import('./component/material-componenet/material.module').then(
+            (m) => m.MaterialComponentsModule
+          ),
+      },
+      {
         path: 'dashboard',
         loadChildren: () =>
           import('./component/dashboard/dashboard.module').then(

@@ -55,8 +55,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { DefaultComponent } from './component/default/default.component';
 import { SidebarComponent } from './component/default/layout/sidebar/sidebar.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { CategoryComponent } from './component/material-componenet/dialog/category/category.component';
 import { ChangePasswordComponent } from './component/material-componenet/dialog/change-password/change-password.component';
 import { ConfirmationComponent } from './component/material-componenet/dialog/confirmation/confirmation.component';
+import { ManageCategoryComponent } from './component/material-componenet/manage-category/manage-category.component';
 import { MaterialModule } from './component/shared/material/material.module';
 import { SharedModule } from './component/shared/shared.module';
 import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
@@ -87,6 +89,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     SidebarComponent,
     ConfirmationComponent,
     ChangePasswordComponent,
+    ManageCategoryComponent,
+    CategoryComponent,
   ],
   imports: [
     MatSnackBarModule,
@@ -135,7 +139,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     MatDatepickerModule,
     MatTooltipModule,
     SharedModule,
-    MaterialModule,
     MaterialModule,
 
     BrowserAnimationsModule,
