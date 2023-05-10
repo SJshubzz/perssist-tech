@@ -23,11 +23,11 @@ import { SellerHomePageComponent } from './component/seller-home-page/seller-hom
 import { SellerComponent } from './component/seller/seller.component';
 import { UserLoginComponent } from './component/user-login/user-login.component';
 import { UserSignUpComponent } from './component/user-sign-up/user-sign-up.component';
-import { AngularMaterialModule } from './shared/material-module';
 
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
 import { CdkTreeModule } from '@angular/cdk/tree';
+import { CommonModule } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -52,8 +52,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { DefaultComponent } from './component/default/default.component';
+import { SidebarComponent } from './component/default/layout/sidebar/sidebar.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { CategoryComponent } from './component/material-componenet/dialog/category/category.component';
+import { ChangePasswordComponent } from './component/material-componenet/dialog/change-password/change-password.component';
+import { ConfirmationComponent } from './component/material-componenet/dialog/confirmation/confirmation.component';
+import { ManageCategoryComponent } from './component/material-componenet/manage-category/manage-category.component';
+import { MaterialModule } from './component/shared/material/material.module';
+import { SharedModule } from './component/shared/shared.module';
 import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -78,7 +85,12 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     SellerHomePageComponent,
     UserSignUpComponent,
     ForgotPasswordComponent,
-    DashboardComponent,
+    DefaultComponent,
+    SidebarComponent,
+    ConfirmationComponent,
+    ChangePasswordComponent,
+    ManageCategoryComponent,
+    CategoryComponent,
   ],
   imports: [
     MatSnackBarModule,
@@ -126,16 +138,19 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     MatRadioModule,
     MatDatepickerModule,
     MatTooltipModule,
+    SharedModule,
+    MaterialModule,
 
     BrowserAnimationsModule,
-    AngularMaterialModule,
     FlexLayoutModule,
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
+    CommonModule,
     ToastrModule.forRoot(),
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
   ],
+  exports: [SidebarComponent, ConfirmationComponent],
   providers: [
     HttpClientModule,
     {

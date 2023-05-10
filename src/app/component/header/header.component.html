@@ -1,7 +1,7 @@
 <div class="navbar container-fluid">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid bg-light fixed-top">
-      <a routerLink="home" click="loginUser()"
+      <a routerLink="/" click="loginUser()"
         ><img src="https://assets.ajio.com/static/img/Ajio-Logo.svg" alt=""
       /></a>
       <div class="nav-search">
@@ -58,12 +58,18 @@
 
           <li>
             <button mat-icon-button [matMenuTriggerFor]="menu">
-              <mat-icon>more_vert</mat-icon>
+              <mat-icon>account_circle</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="logout()">logOut</button>
-              <button mat-menu-item routerLink="dashboard">Dashboard</button>
-              <button mat-menu-item>Option 3</button>
+              <button mat-menu-item (click)="logout()">
+                <mat-icon>logout</mat-icon>logOut
+              </button>
+              <button mat-menu-item routerLink="dashboard">
+                Dashboard<mat-icon>dashboard</mat-icon>
+              </button>
+              <button mat-menu-item (click)="changePassword()">
+                changePassword<mat-icon>password</mat-icon>
+              </button>
             </mat-menu>
           </li>
 
@@ -92,7 +98,7 @@
 
           <li>
             <button mat-icon-button [matMenuTriggerFor]="menu">
-              <mat-icon>more_vert</mat-icon>
+              <mat-icon>account_circle</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="logout()">logOut</button>
