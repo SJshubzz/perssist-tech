@@ -1,0 +1,31 @@
+<body>
+  <header class="text-center">
+    <h1>Dashboard</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Reports</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+  <section>
+    <div class="card">
+      <h2>Total category</h2>
+      <p>{{ data?.category }}</p>
+      <a>
+        <button mat-icon-button>
+          <mat-icon> shopping_cart_checkout </mat-icon>
+        </button>
+      </a>
+    </div>
+    <div class="card">
+      <h2>User</h2>
+      <p>100</p>
+    </div>
+    <div class="card">
+      <h2>Revenue</h2>
+      <p>$10,000</p>
+    </div>
+  </section>
+</body>
