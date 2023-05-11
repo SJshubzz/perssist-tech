@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DefaultComponent } from './component/default/default.component';
 import { HomeComponent } from './component/home/home.component';
+
 import { RouteGuardService } from './services/route-guard.service';
 
 const routes: Routes = [
