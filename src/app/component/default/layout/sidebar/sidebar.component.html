@@ -13,7 +13,11 @@
         (menuitem.role === '' || menuitem.role === userRole)
       "
     >
-      <button mat-raised-button color="primary">{{ menuitem.name }}</button>
+      <div class="outer">
+        <div class="button" mat-raised-button>
+          <div class="text">{{ menuitem.name }}</div>
+        </div>
+      </div>
     </a></mat-list-item
   >
 </mat-nav-list>

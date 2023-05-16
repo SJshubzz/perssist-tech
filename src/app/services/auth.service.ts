@@ -10,7 +10,7 @@ export class AuthService {
   public isAuthincated(): boolean {
     const token = localStorage.getItem('token');
     if (!token) {
-      this.router.navigate(['/']);
+      this.router.navigate(['home']);
       return false;
     } else {
       return true;

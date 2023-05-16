@@ -50,7 +50,6 @@ export class HeaderComponent implements OnInit {
         dialogRef.close();
         localStorage.clear();
         this.router.navigate(['/']);
-        window.location.reload();
       }
     );
   }

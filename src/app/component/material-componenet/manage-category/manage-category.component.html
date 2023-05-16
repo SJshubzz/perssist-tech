@@ -18,9 +18,6 @@
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" #input />
   </mat-form-field>
-</mat-card>
-<hr />
-<mat-card>
   <div class="responsive_table">
     <table mat-table [dataSource]="dataSource" tionclass="mat-elevation-z8">
       <ng-container matColumnDef="name">
@@ -45,3 +42,5 @@
     </table>
   </div>
 </mat-card>
+<hr />
+<mat-card> </mat-card>

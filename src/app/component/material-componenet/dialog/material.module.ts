@@ -13,6 +13,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { MaterialRoutes } from './material.routing';
 import { ViewBillProductsComponent } from './view-bill-products/view-bill-products.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { ViewBillProductsComponent } from './view-bill-products/view-bill-produc
     ConfirmationComponent,
     ChangePasswordComponent,
     CategoryComponent,
+    ProductComponent,
   ],
 })
 export class MaterialComponentsModule {}

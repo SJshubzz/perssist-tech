@@ -40,8 +40,8 @@ export class RouteGuardService {
       this.router.navigate(['dashboard']);
       return false;
     } else {
-      this.router.navigate(['/']);
       localStorage.clear();
+      this.router.navigate(['home']);
       return false;
     }
   }

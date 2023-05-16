@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row fxLayout="row">
-    <span></span>
+    <span>{{ dialogAction }}</span>
     <span class="spacer"></span>
     <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
       <mat-icon>close</mat-icon>
@@ -51,9 +51,9 @@
     (click)="handleSubmit()"
     [disabled]="!(categoryForm.valid && categoryForm.dirty)"
   >
-    <mat-icon>save</mat-icon>
+    <mat-icon>save</mat-icon>{{ action }}
   </button>
   <button mat-raised-button="button" color="warn" mat-dialog-close>
-    <mat-icon>close</mat-icon>
+    <mat-icon>close</mat-icon>Close
   </button>
 </mat-dialog-actions>

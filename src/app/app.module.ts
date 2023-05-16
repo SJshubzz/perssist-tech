@@ -61,7 +61,9 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
 import { CategoryComponent } from './component/material-componenet/dialog/category/category.component';
 import { ChangePasswordComponent } from './component/material-componenet/dialog/change-password/change-password.component';
 import { ConfirmationComponent } from './component/material-componenet/dialog/confirmation/confirmation.component';
+import { ProductComponent } from './component/material-componenet/dialog/product/product.component';
 import { ManageCategoryComponent } from './component/material-componenet/manage-category/manage-category.component';
+import { ManageProductComponent } from './component/material-componenet/manage-product/manage-product.component';
 import { MaterialModule } from './component/shared/material/material.module';
 import { SharedModule } from './component/shared/shared.module';
 import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
@@ -91,10 +93,13 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     DefaultComponent,
     SidebarComponent,
     ConfirmationComponent,
+    ProductComponent,
     ChangePasswordComponent,
     ManageCategoryComponent,
     CategoryComponent,
     SidebarComponent,
+    ManageProductComponent,
+    ProductComponent,
   ],
   imports: [
     MatSnackBarModule,
@@ -154,7 +159,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ToastrModule.forRoot(),
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
   ],
-  exports: [SidebarComponent, ConfirmationComponent],
   providers: [
     HttpClientModule,
     {
