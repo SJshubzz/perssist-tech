@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   menuType: string = 'default';
   userName: string = '';
   role: any = '';
+  name: any;
 
   constructor(
     private dialog: MatDialog,
@@ -27,17 +28,24 @@ export class HeaderComponent implements OnInit {
     const decodedToken: any = jwt_decode(token);
     this.role = decodedToken.role;
 
-    if (token) {
-      if (this.role === 'admin') {
-        this.menuType = 'seller';
-        this.router.navigate(['persist']);
-      } else {
-        this.menuType = 'user';
-      }
+    if (token && this.role === 'admin') {
+      this.menuType = 'seller';
+      this.router.navigate(['persist']);
+    } else if (token && this.role === 'user') {
+      this.menuType = 'user';
+      this.router.navigate(['/']);
     } else {
       this.menuType = 'default';
+      this.router.navigate(['home']);
     }
+    this.getCurrentUser();
   }
+  getCurrentUser() {
+    this.userService.getUser().subscribe((response: any) => {
+      this.name = response.value;
+    });
+  }
+
   logout() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
@@ -50,6 +58,7 @@ export class HeaderComponent implements OnInit {
         dialogRef.close();
         localStorage.clear();
         this.router.navigate(['/']);
+        window.location.reload();
       }
     );
   }

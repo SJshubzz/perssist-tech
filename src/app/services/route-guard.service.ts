@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Router } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
 import jwt_decode from 'jwt-decode';
 import { GlobalConstants } from '../shared/global-constance';
 import { AuthService } from './auth.service';
@@ -15,21 +19,28 @@ export class RouteGuardService {
     private snackBarService: SnackbarService
   ) {}
 
-  canActivate(route: ActivatedRouteSnapshot): boolean {
-    let expectedRoleArray: any = JSON.stringify(route.data);
-    expectedRoleArray = JSON.stringify(expectedRoleArray.expectedRole);
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
+    let expectedRoleArray = route.data;
+    expectedRoleArray = expectedRoleArray['expectedRole'];
     const token: any = localStorage.getItem('token');
-
     var tokenPayLoad: any;
     try {
       tokenPayLoad = jwt_decode(token);
     } catch (error) {
       localStorage.clear();
-      this.router.navigate(['home']);
+      this.router.navigate(['/']);
     }
-    let expectedRole = tokenPayLoad.role;
+    let expectedRole = '';
 
-    if (tokenPayLoad.role == 'admin') {
+    for (let i = 0; i < expectedRoleArray['length']; i++) {
+      if (expectedRoleArray[i] == tokenPayLoad.role) {
+        expectedRole = tokenPayLoad.role;
+      }
+    }
+    if (tokenPayLoad.role == 'user' || tokenPayLoad.role == 'admin') {
       if (this.auth.isAuthincated() && tokenPayLoad.role == expectedRole) {
         return true;
       }
@@ -40,42 +51,39 @@ export class RouteGuardService {
       this.router.navigate(['dashboard']);
       return false;
     } else {
+      this.router.navigate(['/']);
       localStorage.clear();
-      this.router.navigate(['home']);
       return false;
     }
   }
 }
 
-// let expectedRoleArray = router.data;
-// expectedRoleArray = expectedRoleArray['expectedRole'];
+// let expectedRoleArray: any = JSON.stringify(route.data);
+// expectedRoleArray = JSON.stringify(expectedRoleArray.expectedRole);
 // const token: any = localStorage.getItem('token');
+
 // var tokenPayLoad: any;
 // try {
 //   tokenPayLoad = jwt_decode(token);
 // } catch (error) {
 //   localStorage.clear();
-//   this.router.navigate(['/']);
+//   this.router.navigate(['home']);
 // }
-// let expectedRole = '';
+// let expectedRole = tokenPayLoad.role;
 
-// for (let i = 0; i < expectedRole.length; i++) {
-//   if (expectedRoleArray[i] == tokenPayLoad.role) {
-//     expectedRole = tokenPayLoad.role;
-//   }
-// }
-// if (tokenPayLoad.role == 'user' || tokenPayLoad.role == 'admin') {
+// if ((tokenPayLoad.role == 'admin', 'user')) {
 //   if (this.auth.isAuthincated() && tokenPayLoad.role == expectedRole) {
 //     return true;
 //   }
+//   return false;
 //   this.snackBarService.openSnackBar(
 //     GlobalConstants.unAuthorized,
 //     GlobalConstants.error
 //   );
-//   this.router.navigate(['dashboard']);
+//   this.router.navigate(['/']);
 //   return false;
 // } else {
-//   this.router.navigate(['/']);
 //   localStorage.clear();
+//   this.router.navigate(['home']);
 //   return false;
 // }

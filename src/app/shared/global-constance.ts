@@ -5,6 +5,10 @@ export class GlobalConstants {
   public static unAuthorized: string =
     'You are not Authorized person to access this page .';
 
+  public static productExistError: string = 'product alrady exist !';
+
+  public static productAdded: string = 'Product sucssesfully added.';
+
   public static nameRegex: string = '[a-zA-Z0-9 ]*';
 
   public static emailRegex: string =

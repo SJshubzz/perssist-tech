@@ -36,9 +36,18 @@ export class UserAuthService {
   checkToken() {
     return this.HttpClient.get(this.url + '/user/checkToken');
   }
-  changePassword(data:any){
+  changePassword(data: any) {
     return this.HttpClient.post(this.url + '/user/changePassword', data, {
       headers: new HttpHeaders().set('Content-Type', 'Application/json'),
+    });
+  }
+  getUser() {
+    return this.HttpClient.get(this.url + '/user/get');
+  }
+
+  update(data: any) {
+    return this.HttpClient.post(this.url + '/user/update', data, {
+      headers: new HttpHeaders().set('Content-type', 'application/json'),
     });
   }
 }

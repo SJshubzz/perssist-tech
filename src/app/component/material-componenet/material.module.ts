@@ -8,7 +8,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from '../shared/material/material.module';
+import { ManageOrderComponent } from './manage-order/manage-order.component';
 import { MaterialRoutes } from './material.routing';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 
 @NgModule({
   imports: [
@@ -22,6 +24,6 @@ import { MaterialRoutes } from './material.routing';
     CdkTableModule,
   ],
   providers: [],
-  declarations: [],
+  declarations: [ManageOrderComponent, ManageUserComponent],
 })
 export class MaterialComponentsModule {}

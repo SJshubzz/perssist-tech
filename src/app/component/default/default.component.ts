@@ -5,6 +5,7 @@ import {
   Component,
   OnDestroy,
 } from '@angular/core';
+import { MenuItems } from 'src/app/shared/menu-item';
 
 @Component({
   selector: 'app-default',
@@ -17,7 +18,8 @@ export class DefaultComponent implements OnDestroy, AfterViewInit {
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
-    private media: MediaMatcher
+    private media: MediaMatcher,
+    public menuItem: MenuItems
   ) {
     this.mobileQuery = this.media.matchMedia('(min-width: 768px)');
     this._mobileQueryListener = () => this.changeDetectorRef.detectChanges();

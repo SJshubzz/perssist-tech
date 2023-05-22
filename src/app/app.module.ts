@@ -97,7 +97,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ChangePasswordComponent,
     ManageCategoryComponent,
     CategoryComponent,
-    SidebarComponent,
     ManageProductComponent,
     ProductComponent,
   ],

@@ -3,12 +3,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { DefaultComponent } from './component/default/default.component';
 import { HomeComponent } from './component/home/home.component';
 
+import { ManageOrderComponent } from './component/material-componenet/manage-order/manage-order.component';
 import { RouteGuardService } from './services/route-guard.service';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'order',
+    component: ManageOrderComponent,
+    canActivate: [RouteGuardService],
+    data: {
+      expectedRole: ['admin', 'user'],
+    },
   },
   {
     path: 'persist',
@@ -34,7 +43,7 @@ const routes: Routes = [
           ),
         canActivate: [RouteGuardService],
         data: {
-          expectedRole: ['admin'],
+          expectedRole: ['admin', 'user'],
         },
       },
     ],
